@@ -50,69 +50,110 @@
     </div>
   </div>
 </header>
-<main id="main"><section class="phead"><div class="wrap"><h1>List your business</h1><p class="lead">Hotels, homestays, dharamshalas, taxi operators, guides and tour companies. Tell us about your business and which place you serve. We will reply by email within 1 to 2 working days with how a listing works and what it costs.</p></div></section>
+<main id="main"><section class="phead"><div class="wrap"><h1>Admin: add a free listing or ad</h1><p class="lead">Owner use only. Nothing is charged. It goes live at once and is labelled like any other. Enter your admin token below.</p></div></section>
 <div class="wrap section narrow">
-<form class="form" id="enqform" novalidate>
+<form class="form wiz" id="wiz" novalidate>
 <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
-<label>Business name<input name="biz" id="en-biz" required maxlength="80" autocomplete="organization"></label>
-<label>What kind of business?<select name="topic" id="en-topic" required>
-<option value="stay">Hotel, homestay or dharamshala</option><option value="tour">Tour operator or local guide</option><option value="transport">Taxi or transport</option><option value="food">Restaurant or food</option><option value="shop">Shop or services</option><option value="other">Something else</option></select></label>
-<label>Main place you serve<select name="place" id="en-place"><option value="">Select a place</option><option value="ayodhya">Ayodhya</option><option value="badrinath">Badrinath</option><option value="darjeeling">Darjeeling</option><option value="dooars-homestays">Dooars homestays</option><option value="dwarka">Dwarka</option><option value="goa">Goa</option><option value="hanle-changthang-homestays">Hanle and Changthang homestays</option><option value="haridwar">Haridwar</option><option value="jaipur">Jaipur</option><option value="jibhi-tirthan-homestays">Jibhi and Tirthan Valley homestays</option><option value="kamakhya">Kamakhya (Guwahati)</option><option value="kedarnath">Kedarnath</option><option value="kinnaur-homestays">Kinnaur homestays: Sangla, Chitkul and Kalpa</option><option value="kolkata">Kolkata</option><option value="lava-kolakham-homestays">Lava, Kolakham and Rishyap homestays</option><option value="markha-valley-homestays">Markha Valley trek homestays</option><option value="nubra-valley-homestays">Nubra Valley and Turtuk homestays</option><option value="parvati-valley-homestays">Parvati Valley homestays: Kasol, Tosh and Kalga</option><option value="puri">Puri</option><option value="rameswaram">Rameswaram</option><option value="rishikesh">Rishikesh</option><option value="sham-valley-homestays">Sham Valley homestays: Alchi, Likir and Ule</option><option value="singalila-sandakphu-homestays">Sandakphu and Singalila trail stays</option><option value="sittong-homestays">Sittong homestays</option><option value="somnath">Somnath</option><option value="spiti-valley-homestays">Spiti Valley homestays</option><option value="tirupati">Tirupati &amp; Tirumala</option><option value="ujjain">Ujjain</option><option value="vaishno-devi">Vaishno Devi (Katra)</option><option value="varanasi">Varanasi (Kashi)</option><option value="other">Another place (write it below)</option></select></label>
-<label>Listing you are interested in<select name="plan" id="en-plan"><option value="">Not sure yet</option><option value="starter">Starter</option><option value="partner">Yatra Partner</option><option value="sponsored">Sponsored guide</option></select></label>
-<label>Your website or page (optional)<input name="web" id="en-web" type="url" maxlength="150" placeholder="https://"></label>
-<label>Your name<input name="name" required maxlength="60" autocomplete="name"></label>
-<label>Your email (we reply here)<input name="email" type="email" required autocomplete="email" maxlength="120"></label>
-<label>Tell us about your business<textarea name="message" id="en-msg" rows="4" maxlength="1200" placeholder="What you offer, where you are, how many rooms or vehicles, anything else we should know."></textarea></label>
-<label class="chk-l"><input type="checkbox" name="consent" required> I agree that JoharTrip may contact me by email about this listing enquiry. I can ask to stop at any time. <a href="/privacy/">Privacy policy</a></label>
-<button class="btn" type="submit">Send listing enquiry</button><p class="small msg" role="status" aria-live="polite"></p>
-<p class="small">Listings are paid placements and are always labelled "Featured partner" or "Sponsored". Sending this form is not a purchase and does not guarantee a listing. We never ask for card details in this form. See the <a href="/advertiser-terms/">Advertiser terms</a>.</p>
+<fieldset><legend>1. Choose what you want</legend><div class="opts" id="w-plans"><p class="small">Loading plans…</p></div></fieldset>
+<fieldset><legend>0. Admin token</legend><label>Token (the ADMIN_TOKEN you set in Cloudflare; kept only in this tab)<input type="password" id="w-token" autocomplete="off" required></label></fieldset>
+<fieldset><legend>2. How long, and where</legend>
+<div class="opts" id="w-terms"></div><label>Or any number of months (1 to 36)<input type="number" id="w-months" min="1" max="36" placeholder="e.g. 6"></label>
+<div id="w-placebox"><p class="small" id="w-placehint" style="margin:.8rem 0 .3rem">Choose the place guide(s):</p><div class="places" id="w-places"><label class="chk-l"><input type="checkbox" name="pl" value="ayodhya"> Ayodhya</label><label class="chk-l"><input type="checkbox" name="pl" value="badrinath"> Badrinath</label><label class="chk-l"><input type="checkbox" name="pl" value="darjeeling"> Darjeeling</label><label class="chk-l"><input type="checkbox" name="pl" value="dooars-homestays"> Dooars homestays</label><label class="chk-l"><input type="checkbox" name="pl" value="dwarka"> Dwarka</label><label class="chk-l"><input type="checkbox" name="pl" value="goa"> Goa</label><label class="chk-l"><input type="checkbox" name="pl" value="hanle-changthang-homestays"> Hanle and Changthang homestays</label><label class="chk-l"><input type="checkbox" name="pl" value="haridwar"> Haridwar</label><label class="chk-l"><input type="checkbox" name="pl" value="jaipur"> Jaipur</label><label class="chk-l"><input type="checkbox" name="pl" value="jibhi-tirthan-homestays"> Jibhi and Tirthan Valley homestays</label><label class="chk-l"><input type="checkbox" name="pl" value="kamakhya"> Kamakhya (Guwahati)</label><label class="chk-l"><input type="checkbox" name="pl" value="kedarnath"> Kedarnath</label><label class="chk-l"><input type="checkbox" name="pl" value="kinnaur-homestays"> Kinnaur homestays: Sangla, Chitkul and Kalpa</label><label class="chk-l"><input type="checkbox" name="pl" value="kolkata"> Kolkata</label><label class="chk-l"><input type="checkbox" name="pl" value="lava-kolakham-homestays"> Lava, Kolakham and Rishyap homestays</label><label class="chk-l"><input type="checkbox" name="pl" value="markha-valley-homestays"> Markha Valley trek homestays</label><label class="chk-l"><input type="checkbox" name="pl" value="nubra-valley-homestays"> Nubra Valley and Turtuk homestays</label><label class="chk-l"><input type="checkbox" name="pl" value="parvati-valley-homestays"> Parvati Valley homestays: Kasol, Tosh and Kalga</label><label class="chk-l"><input type="checkbox" name="pl" value="puri"> Puri</label><label class="chk-l"><input type="checkbox" name="pl" value="rameswaram"> Rameswaram</label><label class="chk-l"><input type="checkbox" name="pl" value="rishikesh"> Rishikesh</label><label class="chk-l"><input type="checkbox" name="pl" value="sham-valley-homestays"> Sham Valley homestays: Alchi, Likir and Ule</label><label class="chk-l"><input type="checkbox" name="pl" value="singalila-sandakphu-homestays"> Sandakphu and Singalila trail stays</label><label class="chk-l"><input type="checkbox" name="pl" value="sittong-homestays"> Sittong homestays</label><label class="chk-l"><input type="checkbox" name="pl" value="somnath"> Somnath</label><label class="chk-l"><input type="checkbox" name="pl" value="spiti-valley-homestays"> Spiti Valley homestays</label><label class="chk-l"><input type="checkbox" name="pl" value="tirupati"> Tirupati &amp; Tirumala</label><label class="chk-l"><input type="checkbox" name="pl" value="ujjain"> Ujjain</label><label class="chk-l"><input type="checkbox" name="pl" value="vaishno-devi"> Vaishno Devi (Katra)</label><label class="chk-l"><input type="checkbox" name="pl" value="varanasi"> Varanasi (Kashi)</label></div></div></fieldset>
+<fieldset><legend>3. Your business</legend>
+<label>Business name<input name="biz" required maxlength="80" autocomplete="organization"></label>
+<label>What kind of business?<select name="category" required><option value="stay">Hotel, homestay or dharamshala</option><option value="tour">Tour operator or local guide</option><option value="transport">Taxi or transport</option><option value="food">Restaurant or food</option><option value="shop">Shop or services</option><option value="other">Something else</option></select></label>
+<label>Short description (30 to 400 characters, no web links)<textarea name="blurb" rows="3" minlength="30" maxlength="400" required placeholder="What you offer, where you are, what makes you a good choice for pilgrims."></textarea></label>
+<label>Your website (starts with https://)<input name="url" type="url" maxlength="200" placeholder="https://"></label>
+<label>Phone or WhatsApp number (optional if you have a website)<input name="phone" type="tel" maxlength="20" placeholder="+91 98300 12345" autocomplete="tel"></label>
+<label>Button text<input name="cta" maxlength="30" value="Visit website"></label>
+<label>Photo or banner (optional, JPG or PNG)<input type="file" id="w-photo" accept="image/jpeg,image/png"></label><img id="w-prev" class="photo-prev" alt="" hidden>
+</fieldset>
+<fieldset><legend>4. Contact (optional)</legend>
+<label>Your name<input name="contact_name"  maxlength="60" autocomplete="name"></label>
+<label>Your email (we send your receipt and renewal reminder here)<input name="contact_email" type="email"  maxlength="120" autocomplete="email"></label>
+<label class="chk-l"><input type="checkbox" name="consent" checked><span>I have read the <a href="/advertiser-terms/" target="_blank">Advertiser terms</a> and <a href="/content-policy/" target="_blank">Content policy</a>. I understand the fee is paid in advance, there is no automatic renewal, and listings that break the rules can be removed.</span></label>
+</fieldset>
+<div class="sumbox"><div><span id="w-sumtxt">Choose a plan to see the price</span><br><b id="w-total">₹0</b></div><button class="btn" type="submit" id="w-pay" disabled>Publish free</button></div>
+<p class="small msg" id="w-msg" role="status" aria-live="polite"></p>
+<p class="small">Payments are handled by Razorpay (UPI, cards, net banking). We never see or store your card details. Prices exclude GST if applicable. Questions? Write to <a href="mailto:contact@johartrip.com">contact@johartrip.com</a>.</p>
 </form>
-<div id="enq-done" hidden><h2>Thank you. We have your listing enquiry.</h2>
-<p>Your reference is <b id="en-ref"></b>. We will reply to <b id="en-mail"></b> within 1 to 2 working days.</p>
-<div class="card-box"><p><b>Meanwhile:</b></p><ul id="en-links"></ul></div></div>
+<div id="w-done" hidden><h2>Done. It is live (free).</h2><p>Reference <b id="w-ref"></b>. It runs until <b id="w-exp"></b>. We have emailed your receipt. Look for it on the place guide you chose (it can take up to five minutes to appear because pages are cached).</p><p><a class="btn" href="/">Back to JoharTrip</a></p></div>
 </div>
 <script>
 (function(){
-  var KEY="bb3baa41-0a08-461b-ada7-4b4e550d647a", EP="", EMAIL="contact@johartrip.com", f=document.getElementById('enqform');
+  var EP="https://johartrip-listings.old-resonance-9738.workers.dev".replace(/\/+$/,""), f=document.getElementById('wiz'), msg=document.getElementById('w-msg'), pay=document.getElementById('w-pay');
+  var ADMIN=true, PL={}, TM={}, KEY="", plan="", months=3, image="";
   var q=new URLSearchParams(location.search);
-  function set(id,v){var e=document.getElementById(id);if(e&&v){e.value=v;}}
-  set('en-place',q.get('place'));set('en-plan',q.get('plan'));
-  function ref(){var d=new Date();return 'JT-'+String(d.getFullYear()).slice(2)+('0'+(d.getMonth()+1)).slice(-2)+('0'+d.getDate()).slice(-2)+'-'+Math.random().toString(36).slice(2,6).toUpperCase();}
-  function done(o,r){
-    f.hidden=true;document.getElementById('en-ref').textContent=r;document.getElementById('en-mail').textContent=o.email;
-    var ul=document.getElementById('en-links');ul.textContent='';
-    function add(href,txt){var li=document.createElement('li'),a=document.createElement('a');a.href=href;a.textContent=txt;li.appendChild(a);ul.appendChild(li);}
-    add('/advertise/','Listing options and how they work');add('/advertiser-terms/','Advertiser terms');add('/how-we-verify/','How we check our information');
-    document.getElementById('enq-done').hidden=false;window.scrollTo(0,0);
+  function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x)e.textContent=x;return e;}
+  function rs(n){return '₹'+n.toLocaleString('en-IN');}
+  function nplaces(){return f.querySelectorAll('input[name=pl]:checked').length;}
+  function amount(){var p=PL[plan];if(!p||ADMIN)return 0;var u=p.perPlace?Math.max(1,nplaces()):1;return Math.round(p.price*months*u*(100-TM[months])/100);}
+  function refresh(){
+    var p=PL[plan],box=document.getElementById('w-placebox');
+    var max=p?p.maxPlaces:0; box.hidden=!p||max===0;
+    var n=nplaces(); f.querySelectorAll('input[name=pl]').forEach(function(c){c.disabled=!c.checked&&max>0&&n>=max;});
+    document.getElementById('w-placehint').textContent=max?('Choose up to '+max+' place guide'+(max>1?'s':'')+(p.perPlace?' (price is per place)':'')+':'):'';
+    var ok=p&&(max===0||n>0);
+    document.getElementById('w-total').textContent=rs(amount());
+    document.getElementById('w-sumtxt').textContent=p?(p.name+' · '+months+' month'+(months>1?'s':'')+(TM[months]?' · '+TM[months]+'% off':'')):'Choose a plan to see the price';
+    pay.disabled=!ok;
   }
+  function build(j){
+    PL=j.plans;TM=j.terms;KEY=j.key_id;
+    var pb=document.getElementById('w-plans');pb.textContent='';
+    Object.keys(PL).forEach(function(k){var p=PL[k],l=el('label','opt'),i=el('input');i.type='radio';i.name='plan';i.value=k;
+      i.addEventListener('change',function(){plan=k;if(p.maxPlaces>0)f.querySelectorAll('input[name=pl]').forEach(function(c){c.checked=false;});refresh();});
+      l.appendChild(i);l.appendChild(el('b','',p.name));l.appendChild(el('span','pr',rs(p.price)+(p.perPlace?' per place':'')+' / month'));l.appendChild(el('small','',p.blurb));pb.appendChild(l);
+      if(q.get('plan')===k){i.checked=true;plan=k;}});
+    var tb=document.getElementById('w-terms');tb.textContent='';
+    Object.keys(TM).forEach(function(m){var l=el('label','opt'),i=el('input');i.type='radio';i.name='months';i.value=m;if(+m===months)i.checked=true;
+      i.addEventListener('change',function(){months=+m;refresh();});
+      l.appendChild(i);l.appendChild(el('b','',m+' month'+(m>1?'s':'')));l.appendChild(el('small','',TM[m]?('Save '+TM[m]+'%'):'No discount'));tb.appendChild(l);});
+    var pre=q.get('place');if(pre){var c=f.querySelector('input[name=pl][value="'+pre+'"]');if(c)c.checked=true;}
+    f.addEventListener('change',refresh);
+    var mi=document.getElementById('w-months');if(mi)mi.addEventListener('input',function(){var v=parseInt(mi.value,10);if(v>=1&&v<=36){months=v;f.querySelectorAll('input[name=months]').forEach(function(r){r.checked=false;});refresh();}});
+    refresh();
+  }
+  fetch(EP+'/plans').then(function(r){return r.json();}).then(build).catch(function(){msg.textContent='Plans could not load. Please refresh, or write to contact@johartrip.com.';});
+  // photo: shrink in the browser so it is small and always a JPEG
+  document.getElementById('w-photo').addEventListener('change',function(e){
+    var file=e.target.files[0],pv=document.getElementById('w-prev');image='';pv.hidden=true;if(!file)return;
+    if(!/^image\/(jpeg|png)$/.test(file.type)){msg.textContent='Please choose a JPG or PNG picture.';return;}
+    var img=new Image();img.onload=function(){var W=Math.min(800,img.width),H=Math.round(img.height*W/img.width),c=document.createElement('canvas');c.width=W;c.height=H;
+      var x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,W,H);x.drawImage(img,0,0,W,H);
+      var qv=.8,d=c.toDataURL('image/jpeg',qv);while(d.length>240000&&qv>.3){qv-=.1;d=c.toDataURL('image/jpeg',qv);}
+      if(d.length>240000){msg.textContent='That picture is too detailed. Please choose a simpler one.';return;}
+      image=d;pv.src=d;pv.hidden=false;msg.textContent='';};img.src=URL.createObjectURL(file);});
+  function loadRz(cb){if(window.Razorpay)return cb();var s=document.createElement('script');s.src='https://checkout.razorpay.com/v1/checkout.js';s.onload=cb;s.onerror=function(){msg.textContent='The payment window could not load. Please check your connection.';pay.disabled=false;};document.head.appendChild(s);}
   f.addEventListener('submit',function(e){
-    e.preventDefault();var m=f.querySelector('.msg');
-    if(f.website.value){return;}
+    e.preventDefault();if(f.website.value)return;
     if(!f.checkValidity()){f.reportValidity();return;}
-    var fd=new FormData(f),o={};fd.forEach(function(v,k){o[k]=v;});
-    var sel=document.getElementById('en-place');o.place_name=o.place?sel.options[sel.selectedIndex].text:'';o.consent=true;o.ref=ref();o.page=location.href;
-    var kind=document.getElementById('en-topic');var kindTxt=kind.options[kind.selectedIndex].text;
-    o.message='Business: '+o.biz+' ('+kindTxt+')\nWebsite: '+(o.web||'-')+'\nInterested in: '+(o.plan||'not sure')+'\n\n'+(o.message||'');
-    var body='NEW BUSINESS LISTING ENQUIRY '+o.ref+'\nPlace: '+(o.place_name||'-')+'\n'+o.message+'\n\nContact name: '+o.name+'\nEmail: '+o.email;
-    var btn=f.querySelector('button[type=submit]');
-    function fail(t){btn.disabled=false;m.textContent=t||('Sorry, that did not send. Please write to '+EMAIL+'.');}
-    if(EP){
-      m.textContent='Sending…';btn.disabled=true;o.topic='listing';
-      fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(o)}).then(function(r){return r.json();})
-        .then(function(j){if(j.ok)done(o,j.ref||o.ref);else fail();}).catch(function(){fail();});
-    }else if(KEY){
-      m.textContent='Sending…';btn.disabled=true;
-      fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:KEY,subject:'JoharTrip business listing enquiry '+o.ref+': '+o.biz,from_name:o.name,replyto:o.email,message:body,botcheck:''})})
-        .then(function(r){return r.json();}).then(function(j){if(j.success)done(o,o.ref);else fail('Sorry, that did not send ('+(j.message||'unknown error')+'). Please write to '+EMAIL+'.');})
-        .catch(function(){fail();});
-    }else{
-      location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Business listing enquiry '+o.ref)+'&body='+encodeURIComponent(body);
-      m.textContent='Your email app should open with the details. If it does not, write to '+EMAIL+'.';
-    }
+    var o={plan:plan,months:months,places:[].map.call(f.querySelectorAll('input[name=pl]:checked'),function(c){return c.value;}),image:image,consent:f.consent.checked};
+    ['biz','category','blurb','url','phone','cta','contact_name','contact_email'].forEach(function(k){o[k]=f[k].value;});
+    pay.disabled=true;msg.textContent='Checking your details…';
+    if(ADMIN){fetch(EP+'/admin/create',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+document.getElementById('w-token').value},body:JSON.stringify(o)}).then(function(r){return r.json().then(function(j){return {s:r.status,j:j};});}).then(function(x){
+        if(x.s===401){msg.textContent='Wrong admin token.';pay.disabled=false;return;}
+        if(!x.j.ok){msg.textContent=x.j.error||'Something went wrong.';pay.disabled=false;return;}
+        f.hidden=true;document.getElementById('w-ref').textContent=x.j.ref;document.getElementById('w-exp').textContent=x.j.expires.slice(0,10);document.getElementById('w-done').hidden=false;window.scrollTo(0,0);
+      }).catch(function(){msg.textContent='Could not reach the server.';pay.disabled=false;});return;}
+    fetch(EP+'/order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(o)}).then(function(r){return r.json();}).then(function(j){
+      if(!j.ok){msg.textContent=j.error||'Something went wrong. Please try again.';pay.disabled=false;return;}
+      msg.textContent='Opening the secure payment window…';
+      loadRz(function(){
+        var rz=new Razorpay({key:j.key_id,amount:j.amount,currency:'INR',order_id:j.order_id,name:'JoharTrip',description:PL[plan].name+' ('+j.ref+')',
+          prefill:{name:o.contact_name,email:o.contact_email,contact:o.phone},theme:{color:'#14213D'},
+          modal:{ondismiss:function(){msg.textContent='Payment not completed. You were not charged. Press the button to try again.';pay.disabled=false;}},
+          handler:function(r){msg.textContent='Confirming your payment…';
+            fetch(EP+'/verify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(r)}).then(function(x){return x.json();}).then(function(v){
+              f.hidden=true;document.getElementById('w-ref').textContent=v.ref||j.ref;document.getElementById('w-exp').textContent=v.expires?v.expires.slice(0,10):'the end of your term';
+              document.getElementById('w-done').hidden=false;window.scrollTo(0,0);
+            }).catch(function(){f.hidden=true;document.getElementById('w-ref').textContent=j.ref;document.getElementById('w-exp').textContent='the end of your term';document.getElementById('w-done').hidden=false;});}});
+        rz.on('payment.failed',function(){msg.textContent='The payment failed. You were not charged. Please try again.';pay.disabled=false;});
+        rz.open();});
+    }).catch(function(){msg.textContent='Could not reach the server. Please try again.';pay.disabled=false;});
   });
 })();
-</script>
-</main>
+</script></main>
 
 <section class="newsletter">
   <div class="wrap nl">
@@ -144,7 +185,7 @@
 </nav>
 <div class="cookie" id="cookie" hidden role="dialog" aria-label="Cookie consent"><p>We use cookies for analytics, ads and affiliate tracking. Read our <a href="/privacy/">privacy policy</a>.</p><div><button class="btn ghost sm" type="button" data-consent="no">Decline</button><button class="btn sm" type="button" data-consent="yes">Accept</button></div></div>
 <script src="/static/js/app.js?v=20261109" defer></script>
-<script src="/static/js/listings.js?v=20261109" defer data-endpoint=""></script>
+<script src="/static/js/listings.js?v=20261109" defer data-endpoint="https://johartrip-listings.old-resonance-9738.workers.dev"></script>
 <script src="/static/js/reviews.js?v=20261109" defer data-endpoint=""></script>
 <script src="/static/js/chat.js?v=20261109" defer data-endpoint="" data-key="bb3baa41-0a08-461b-ada7-4b4e550d647a" data-email="contact@johartrip.com"></script>
 
