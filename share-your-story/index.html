@@ -51,25 +51,68 @@
 </header>
 <main id="main"><section class="phead"><div class="wrap"><h1>Share your travel story</h1><p class="lead">Been to a temple, valley or homestay we cover? Tell other travellers what it was really like.</p></div></section>
 <div class="wrap section narrow">
-<form class="form" id="storyform" action="https://api.web3forms.com/submit" method="post"  data-track="story">
-<input type="hidden" name="access_key" value="bb3baa41-0a08-461b-ada7-4b4e550d647a"><input type="hidden" name="subject" value="JoharTrip traveller story"><input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+<div class="sent-panel" id="st-sent" hidden><h2>Thank you. We have your story.</h2><p>We read every story before it appears, usually within a few days. If we have a question we will write to the email you gave. <a href="/stories/">Read other travellers' stories</a>.</p></div>
+<form class="form" id="storyform" action="https://formsubmit.co/contact@johartrip.com" method="post" enctype="multipart/form-data" data-track="story">
+<input type="hidden" name="_subject" value="JoharTrip traveller story">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://johartrip.com/share-your-story/?sent=1">
+<input type="hidden" name="_autoresponse" value="Thank you for sharing your story with JoharTrip. We read every story before it appears on the site, usually within a few days. If we need anything we will reply to this email address. To remove your story at any time, write to contact@johartrip.com.">
+<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 <label>Your first name (shown with the story)<input name="name" required maxlength="40" autocomplete="given-name"></label>
 <label>Email (private, only so we can reach you)<input type="email" name="email" required autocomplete="email"></label>
 <label>Place<select name="place" id="st-place" required><option value="">Choose a place</option><option value="ayodhya">Ayodhya</option><option value="badrinath">Badrinath</option><option value="darjeeling">Darjeeling</option><option value="dooars-homestays">Dooars homestays</option><option value="dwarka">Dwarka</option><option value="goa">Goa</option><option value="hanle-changthang-homestays">Hanle and Changthang homestays</option><option value="haridwar">Haridwar</option><option value="jaipur">Jaipur</option><option value="jibhi-tirthan-homestays">Jibhi and Tirthan Valley homestays</option><option value="kamakhya">Kamakhya (Guwahati)</option><option value="kedarnath">Kedarnath</option><option value="kinnaur-homestays">Kinnaur homestays: Sangla, Chitkul and Kalpa</option><option value="kolkata">Kolkata</option><option value="lava-kolakham-homestays">Lava, Kolakham and Rishyap homestays</option><option value="markha-valley-homestays">Markha Valley trek homestays</option><option value="nubra-valley-homestays">Nubra Valley and Turtuk homestays</option><option value="parvati-valley-homestays">Parvati Valley homestays: Kasol, Tosh and Kalga</option><option value="puri">Puri</option><option value="rameswaram">Rameswaram</option><option value="rishikesh">Rishikesh</option><option value="sham-valley-homestays">Sham Valley homestays: Alchi, Likir and Ule</option><option value="singalila-sandakphu-homestays">Sandakphu and Singalila trail stays</option><option value="sittong-homestays">Sittong homestays</option><option value="somnath">Somnath</option><option value="spiti-valley-homestays">Spiti Valley homestays</option><option value="tirupati">Tirupati &amp; Tirumala</option><option value="ujjain">Ujjain</option><option value="vaishno-devi">Vaishno Devi (Katra)</option><option value="varanasi">Varanasi (Kashi)</option></select></label>
 <label>When did you go? (month and year)<input name="when" maxlength="30" placeholder="e.g. November 2025"></label>
 <label>Title<input name="title" required maxlength="90" placeholder="e.g. Dawn on the ghats"></label>
 <label>Your story (80 to 1,800 characters)<textarea name="story" rows="7" required minlength="80" maxlength="1800" placeholder="What you did, what surprised you, what you would tell a friend. Please do not include phone numbers."></textarea></label>
-<label>Links to photos or short clips (optional, up to 3)<input name="link1" type="url" placeholder="https://..."><input name="link2" type="url" placeholder="https://..."><input name="link3" type="url" placeholder="https://..."></label>
-<p class="small">To share photos or a short clip, upload it to YouTube (unlisted is fine), Google Drive or Instagram and paste the link. We do not store files on this site.</p>
+<label>Add photos or a short clip from your device (optional)<input type="file" name="attachment" id="st-files" accept="image/*,video/mp4,video/quicktime" multiple></label>
+<p class="small" id="st-fnote">Up to 5 photos or one short clip. Photos are shrunk automatically. Clips must be under 8 MB in total. For a longer video, paste a link below instead.</p>
+<p class="small err" id="st-ferr" role="alert" hidden></p>
+<label>Or a link to a longer video or album (optional)<input name="link1" type="url" placeholder="https://... (YouTube, Google Drive or Instagram)"></label>
 <label class="chk-l"><input type="checkbox" required> This is my own story and my own photos or video, and I have the right to share them.</label>
 <label class="chk-l"><input type="checkbox" required> I allow JoharTrip to show my story and first name on this site, and to shorten it for clarity. I can ask for removal any time at contact@johartrip.com.</label>
 <label class="chk-l"><input type="checkbox" required> It is truthful, has no private details of other people, and is not paid promotion.</label>
-<button class="btn">Send my story</button>
-<p class="small">We read every story before it appears. We may decline stories that break our <a href="/content-policy/">content policy</a>. Stories are travellers' own views, not checked or endorsed by JoharTrip. See our <a href="/privacy/">privacy policy</a>.</p>
+<button class="btn" id="st-btn">Send my story</button>
+<p class="small">We read every story before it appears. We may decline stories that break our <a href="/content-policy/">content policy</a>. Stories are travellers' own views, not checked or endorsed by JoharTrip. Files you attach reach us by email, are used only to review and publish your story, and are deleted if we do not publish them. See our <a href="/privacy/">privacy policy</a>.</p>
 </form>
 <p><a href="/stories/">Read traveller stories</a></p>
 </div>
-<script>(function(){var p=new URLSearchParams(location.search).get('place');var s=document.getElementById('st-place');if(p&&s)s.value=p;})();</script>
+<script>(function(){
+var q=new URLSearchParams(location.search),p=q.get('place'),sel=document.getElementById('st-place');if(p&&sel)sel.value=p;
+var form=document.getElementById('storyform'),sent=document.getElementById('st-sent');
+if(q.get('sent')==='1'){form.hidden=true;sent.hidden=false;window.scrollTo(0,0);}
+var fin=document.getElementById('st-files'),err=document.getElementById('st-ferr'),btn=document.getElementById('st-btn');
+var MAXV=8*1024*1024,MAXN=5;
+function say(m){err.textContent=m;err.hidden=!m;}
+function shrink(f){return new Promise(function(res){
+  if(!/^image\/(jpeg|png|webp)$/.test(f.type)){res(f);return;}
+  var img=new Image(),u=URL.createObjectURL(f);
+  img.onload=function(){var m=1600,r=Math.min(1,m/Math.max(img.width,img.height)),c=document.createElement('canvas');
+    c.width=Math.round(img.width*r);c.height=Math.round(img.height*r);c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+    URL.revokeObjectURL(u);
+    c.toBlob(function(b){if(!b||b.size>=f.size){res(f);return;}
+      res(new File([b],(f.name.replace(/\.[^.]+$/,'')||'photo')+'.jpg',{type:'image/jpeg'}));},'image/jpeg',0.82);};
+  img.onerror=function(){URL.revokeObjectURL(u);res(f);};img.src=u;});}
+var busy=false,ready=false;
+form.addEventListener('submit',function(e){
+  if(ready)return;
+  var files=Array.prototype.slice.call(fin.files||[]);
+  if(!files.length)return;
+  e.preventDefault();if(busy)return;say('');
+  if(files.length>MAXN){say('Please choose at most '+MAXN+' files.');return;}
+  var vids=files.filter(function(f){return /^video\//.test(f.type);});
+  if(vids.length>1){say('Please attach one clip only. Paste a link for more.');return;}
+  if(vids.length&&files.length>1){say('Attach either one clip or photos, not both. Paste a link for extras.');return;}
+  btn.disabled=true;btn.textContent='Preparing your files...';busy=true;
+  Promise.all(files.map(shrink)).then(function(out){
+    var total=out.reduce(function(a,f){return a+f.size;},0);
+    if(total>MAXV){busy=false;btn.disabled=false;btn.textContent='Send my story';
+      say('Your files are '+(total/1048576).toFixed(1)+' MB. The limit is 8 MB in total. Choose fewer or smaller files, or paste a link instead.');return;}
+    var dt=new DataTransfer();out.forEach(function(f){dt.items.add(f);});fin.files=dt.files;
+    ready=true;btn.textContent='Sending...';form.submit();
+  });
+});
+})();</script>
 </main>
 
 <section class="newsletter">
