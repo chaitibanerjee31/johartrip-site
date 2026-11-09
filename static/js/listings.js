@@ -8,19 +8,20 @@
   function el(t, c, x) { var e = document.createElement(t); if (c) e.className = c; if (x) e.textContent = x; return e; }
   function link(href, cls, txt, track) { var a = el("a", cls, txt); a.href = href; a.rel = "sponsored nofollow noopener"; a.target = "_blank"; if (track) a.setAttribute("data-track", track); return a; }
   function card(l) {
-    var b = el("div", "mbox sponsor jt-lst" + (l.plan === "partner" ? " jt-big" : ""));
-    b.appendChild(el("span", "ad-note", "Featured partner"));
+    var b = el("article", "mbox sponsor jt-lst" + (l.plan === "partner" ? " jt-big" : ""));
+    b.appendChild(el("span", "jt-badge", l.plan === "partner" ? "\u2605 Yatra partner" : "\u2605 Featured partner"));
     if (l.img) { var i = el("img", "jt-img"); i.src = EP + "/img?id=" + l.id; i.alt = l.name; i.loading = "lazy"; i.width = 320; i.height = 200; b.appendChild(i); }
     b.appendChild(el("h4", "", l.name)); b.appendChild(el("p", "muted", l.blurb));
     var r = el("div", "jt-row"); r.appendChild(link(EP + "/go?id=" + l.id, "btn", l.cta || "Visit website", "partner_click"));
-    if (l.call) r.appendChild(link(EP + "/go?id=" + l.id + "&t=call", "btn ghost", "Call", "partner_call"));
+    if (l.call) r.appendChild(link(EP + "/go?id=" + l.id + "&t=call", "btn ghost", "Call now", "partner_call"));
     b.appendChild(r); return b;
   }
   function ad(a) {
-    var w = el("div", "adbox jt-adb"); w.appendChild(el("span", "ad-note", "Advertisement"));
+    var w = el("div", "adbox jt-adb"); w.appendChild(el("span", "jt-adtag", "Sponsored"));
     var k = link(EP + "/go?id=" + a.id, "jt-ad-a", "", "ad_click");
+    var t = el("span", "jt-ad-t"); t.appendChild(el("b", "", a.name)); t.appendChild(el("span", "jt-ad-blurb", a.blurb));
+    t.appendChild(el("span", "jt-ad-cta", (a.cta || "Explore now") + " \u2192")); k.appendChild(t);
     if (a.img) { var i = el("img", "jt-ad-img"); i.src = EP + "/img?id=" + a.id; i.alt = a.name; i.loading = "lazy"; i.width = 600; i.height = 200; k.appendChild(i); }
-    var t = el("span", "jt-ad-t"); t.appendChild(el("b", "", a.name)); t.appendChild(document.createTextNode(" " + a.blurb)); k.appendChild(t);
     w.appendChild(k); return w;
   }
   fetch(EP + "/public?place=" + encodeURIComponent(place)).then(function (r) { return r.json(); }).then(function (j) {
