@@ -45,6 +45,7 @@
       <a href="/collections/homestay/">Homestays</a>
       <a href="/best-time-to-visit/">When to go</a>
       <a href="/trip-planner/">Trip planner</a>
+      <a class="nav-book" href="/#book">Book</a>
     </nav>
     <div class="tools">
       <a class="icon-btn" href="/search/" aria-label="Search"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></a>
@@ -54,6 +55,13 @@
   </div>
 </header>
 <main id="main">
+
+
+<section class="bookbar" id="book" aria-label="Book your trip"><div class="wrap bb-in">
+  <div class="bb-t"><b>Book your trip</b><span>Stays, flights and buses on our partners' sites</span></div>
+  <div class="bb-row"><a class="bb-btn bb-hotel" href="https://bitli.in/58mfa7y" target="_blank" rel="sponsored noopener" data-track="aff_hotel">Find a stay</a><a class="bb-btn bb-flight" href="https://bitli.in/mr1hzRZ" target="_blank" rel="sponsored noopener" data-track="aff_flight">Compare flights</a><a class="bb-btn bb-bus" href="https://bitli.in/i6Vo23P" target="_blank" rel="sponsored noopener" data-track="aff_bus">Book a bus</a></div>
+  <p class="bb-n">Partner links: we may earn a small commission at no extra cost to you.</p>
+</div></section>
 <section class="dhero" style="--c1:#5C1230;--c2:#E0503A">
   <div class="dhero-art has-img" style="--c1:#5C1230;--c2:#E0503A" aria-hidden="true">
   <img src="/static/places/kolkata/1.jpg" alt="" loading="eager" decoding="async">
@@ -75,7 +83,8 @@
   </div>
 </section>
 
-<div class="wrap dlayout">
+<div class="wrap jt-adwrap" data-jt-ads hidden></div>
+<div class="wrap dlayout" data-jt-place="kolkata">
   <article class="content">
     <nav class="toc toc-m" aria-label="On this page"><a href="#overview">Overview</a><a href="#photos">Photos</a><a href="#todo">Things to do</a><a href="#reach">How to reach</a><a href="#permits">Permits and rules</a><a href="#time">Best time</a><a href="#tips">Tips</a><a href="#reviews">Reviews</a><a href="#stories">Stories</a><a href="#faq">FAQ</a></nav>
 
@@ -91,6 +100,8 @@
 
       <p class="legend"><span><i class="m-best"></i>Best time</span><span><i class="m-fest"></i>Festival season</span><span><i class="m-avoid"></i>Less ideal</span></p>
     </section>
+
+    <section id="partners" class="jt-partners" data-jt-partners aria-label="Featured local partners" hidden></section>
 
     <section id="overview">
       <h2>About Kolkata</h2>
@@ -130,9 +141,6 @@
         
       </div>
       <p class="small">Book trains on <a href="https://www.irctc.co.in/" target="_blank" rel="noopener">IRCTC</a>, the official site.</p>
-      
-      
-      
       <div class="map"><iframe title="Map of Kolkata" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=88.2839%2C22.5226%2C88.4439%2C22.622600000000002&amp;layer=mapnik&amp;marker=22.5726%2C88.3639"></iframe></div>
     </section>
 
@@ -249,6 +257,7 @@
 </nav>
 <div class="cookie" id="cookie" hidden role="dialog" aria-label="Cookie consent"><p>We use cookies for analytics, ads and affiliate tracking. Read our <a href="/privacy/">privacy policy</a>.</p><div><button class="btn ghost sm" type="button" data-consent="no">Decline</button><button class="btn sm" type="button" data-consent="yes">Accept</button></div></div>
 <script src="/static/js/app.js?v=20261109" defer></script>
+<script src="/static/js/listings.js?v=20261109" defer data-endpoint=""></script>
 <script src="/static/js/reviews.js?v=20261109" defer data-endpoint=""></script>
 <script src="/static/js/chat.js?v=20261109" defer data-endpoint="" data-key="bb3baa41-0a08-461b-ada7-4b4e550d647a" data-email="contact@johartrip.com"></script>
 
